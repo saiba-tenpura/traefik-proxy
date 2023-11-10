@@ -1,0 +1,19 @@
+version: 3.9
+services:
+  traefik-proxy:
+    image: traefik:v2.10
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+      - '8080:8080'
+    networks:
+      - default
+    volumes:
+      - ./traefik.yml:/etc/traefik/traefik.yml
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  default:
+    external:
+      name: gateway
