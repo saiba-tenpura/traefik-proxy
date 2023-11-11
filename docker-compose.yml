@@ -1,19 +1,25 @@
-version: 3.9
+version: '3.9'
 services:
   traefik-proxy:
     image: traefik:v2.10
-    restart: always
+    restart: unless-stopped
     ports:
-      - '80:80'
-      - '443:443'
-      - '8080:8080'
-    networks:
-      - default
+      - '8000:80'
+      - '8443:443'
+      - 8080
     volumes:
       - ./traefik.yml:/etc/traefik/traefik.yml
       - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dashboard.rule=Host(`${TRAEFIK_DOMAIN}`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      - "traefik.http.routers.dashboard.middlewares=auth"
+      - "traefik.http.middlewares.auth.digestauth.users=${TRAEFIK_DIGEST_AUTH}"
 
 networks:
   default:
-    external:
-      name: gateway
+    name: proxy-network
+    external: true

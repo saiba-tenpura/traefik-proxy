@@ -1,4 +1,9 @@
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false
+
 api:
+  insecure: true
   dashboard: true
 
 entrypoints:
@@ -13,4 +18,5 @@ entrypoints:
     address: :443
 
 providers:
-  docker: {}
+  docker:
+    exposedByDefault: false
