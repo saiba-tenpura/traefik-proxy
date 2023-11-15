@@ -28,3 +28,4 @@ certificatesResolvers:
 providers:
   docker:
     exposedByDefault: false
+    network: proxy-network
