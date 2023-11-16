@@ -29,3 +29,5 @@ providers:
   docker:
     exposedByDefault: false
     network: proxy-network
+  file:
+    directory: /etc/traefik/config
