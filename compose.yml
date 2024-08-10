@@ -1,6 +1,6 @@
 services:
   traefik-proxy:
-    image: traefik:v2.10
+    image: traefik:v3.1
     restart: unless-stopped
     ports:
       - "80:80"
