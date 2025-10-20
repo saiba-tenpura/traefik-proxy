@@ -16,6 +16,9 @@ entrypoints:
           scheme: https
   websecure:
     address: :443
+    http:
+      middlewares:
+        - compression@file
 
 certificatesResolvers:
   letsEncrypt:

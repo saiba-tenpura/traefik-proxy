@@ -1,5 +1,9 @@
 http:
   middlewares:
+    compression:
+      compress:
+        includedContentTypes: text/plain, text/css, text/html, text/xml, text/javascript, application/json, application/xml, application/xml+rss, image/svg+xml
+
     redirect-non-www-to-www:
       redirectregex:
         regex: "^https?://(?:www\\.)?(.+)"
