@@ -2,7 +2,7 @@ http:
   middlewares:
     compression:
       compress:
-        includedContentTypes: text/plain, text/css, text/html, text/xml, text/javascript, application/json, application/xml, application/xml+rss, image/svg+xml
+        includedContentTypes: text/plain, text/css, text/html, text/xml, text/javascript, application/javascript, application/x-javascript, application/json, application/xml, application/xml+rss, image/svg+xml
 
     redirect-non-www-to-www:
       redirectregex:
