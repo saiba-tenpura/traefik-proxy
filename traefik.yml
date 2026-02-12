@@ -23,7 +23,7 @@ entrypoints:
 certificatesResolvers:
   letsEncrypt:
     acme:
-      email: cloud.jan@web.de
+      email: <email address>
       storage: /etc/traefik/acme.json
       httpChallenge:
         entryPoint: web
