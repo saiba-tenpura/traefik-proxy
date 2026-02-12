@@ -22,8 +22,7 @@ services:
     ...
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.service.rule=Host(`${SERVICE_URL}`)"
-      - "traefik.http.routers.service.tls=true"
+      - "traefik.http.routers.<SERVICE>.rule=Host(`${SERVICE_URL}`)"
 
 networks:
   ...
