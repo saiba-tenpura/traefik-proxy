@@ -29,6 +29,15 @@ certificatesResolvers:
       httpChallenge:
         entryPoint: web
 
+# certificatesResolvers:
+#   letsEncryptDns:
+#     acme:
+#       email: <EMAIL_ADDRESS>
+#       storage: /etc/traefik/acme.json
+#       dnsChallenge:
+#         delayBeforeCheck: 0
+#         provider: <ACME_PROVIDER>
+
 providers:
   docker:
     exposedByDefault: false
