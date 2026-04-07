@@ -18,11 +18,12 @@ services:
   service:
     ...
     networks:
+      ...
       - proxy-network
     ...
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.<SERVICE>.rule=Host(`${SERVICE_URL}`)"
+      - "traefik.http.routers.<SERVICE>.rule=Host(`${SERVICE_DOMAIN}`)"
 
 networks:
   ...
@@ -30,3 +31,5 @@ networks:
     external: true
 ```
 
+## License
+[MIT](./LICENSE)
