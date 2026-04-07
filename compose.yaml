@@ -1,6 +1,6 @@
 services:
   traefik-proxy:
-    image: traefik:v3.6
+    image: traefik:v3.6.12
     restart: unless-stopped
     ports:
       - "80:80"
@@ -16,7 +16,7 @@ services:
       - default
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dashboard.rule=HostRegexp(`${TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.dashboard.rule=Host(`${TRAEFIK_DOMAIN}`)"
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.tls=true"
       - "traefik.http.routers.dashboard.tls.certresolver=letsEncrypt"
