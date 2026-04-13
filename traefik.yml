@@ -17,9 +17,10 @@ entrypoints:
   websecure:
     address: :443
     http:
-      tls: true
       middlewares:
         - compression@file
+      tls:
+        certResolver: letsEncrypt
 
 certificatesResolvers:
   letsEncrypt:
